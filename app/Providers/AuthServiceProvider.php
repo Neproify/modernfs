@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace ModernFS\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -12,7 +12,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        'ModernFS\Model' => 'ModernFS\Policies\ModelPolicy',
     ];
 
     /**

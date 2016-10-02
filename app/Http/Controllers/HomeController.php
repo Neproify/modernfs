@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace ModernFS\Http\Controllers;
 
 class HomeController extends Controller
 {

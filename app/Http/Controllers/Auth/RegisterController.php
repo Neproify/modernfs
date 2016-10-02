@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace ModernFS\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\User;
+use ModernFS\Http\Controllers\Controller;
+use ModernFS\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Validator;
 
