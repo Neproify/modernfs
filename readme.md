@@ -1,3 +1,3 @@
 # Modern Forum Software
 
-[Website](www.modernfs.tk)
+[Website](http://www.modernfs.tk)
