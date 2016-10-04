@@ -2,10 +2,7 @@
 
 namespace ModernFS\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use ModernFS\Forum;
-use ModernFS\Http\Requests;
 
 class ForumController extends Controller
 {
@@ -17,6 +14,7 @@ class ForumController extends Controller
     public function index()
     {
         $forums = Forum::all();
+
         return view('forum.index', ['forums' => $forums]);
     }
 
@@ -25,11 +23,13 @@ class ForumController extends Controller
      *
      * @param $id
      * @param $name
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show($id, $name)
     {
         $forum = Forum::findOrFail($id);
+
         return view('forum.show', ['forum' => $forum]);
     }
 }
