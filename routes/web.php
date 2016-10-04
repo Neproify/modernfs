@@ -15,3 +15,4 @@ Auth::routes();
 
 Route::get('/', 'ForumController@index')->name('index');
 Route::get('/forum/{id}/{name?}', 'ForumController@show')->name('forum');
+Route::get('/topic/{id}/{name?}', 'TopicController@show')->name('topic');

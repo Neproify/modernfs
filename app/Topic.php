@@ -4,25 +4,25 @@ namespace ModernFS;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Forum extends Model
+class Topic extends Model
 {
     /**
-     * Get url to the forum.
+     * Get url to the topic.
      *
      * @return string
      */
     public function url()
     {
-        return route('forum', ['id' => $this->id, 'name' => str_slug($this->name)]);
+        return route('topic', ['id' => $this->id, 'name' => str_slug($this->name)]);
     }
 
     /**
-     * Get topics in forum.
+     * Get posts in topic.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function topics()
+    public function posts()
     {
-        return $this->hasMany('ModernFS\Topic');
+        return $this->hasMany('ModernFS\Post');
     }
 }
