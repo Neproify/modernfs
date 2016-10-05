@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Topic extends Model
 {
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['user_id', 'forum_id', 'name'];
+
+    /**
      * Get url to the topic.
      *
      * @return string
