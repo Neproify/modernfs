@@ -1,8 +1,6 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        Here should be info about author, etc.
-    </div>
-    <div class="panel-body">
+<div class="card">
+    <div class="card-block">
+        <h4 class="card-title">Reply to topic.</h4>
         {{ $post->content }}
     </div>
 </div>

@@ -1,5 +1,5 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <a href="{{ $topic->url() }}">{{ $topic->name }}</a>
+<div class="card">
+    <div class="card-block">
+        <h4 class="card-title"><a href="{{ $topic->url() }}">{{ $topic->name }}</a></h4>
     </div>
 </div>
