@@ -44,12 +44,12 @@ class Topic extends Model
     }
 
     /**
-     * Get last post in topic. Sorted by ID.
+     * Get last post in topic.
      *
      * @return mixed
      */
-    public function getLastPost()
+    public function latestPost()
     {
-        return $this->posts->sortByDesc('id')->first();
+        return $this->hasOne('ModernFS\Post')->latest();
     }
 }

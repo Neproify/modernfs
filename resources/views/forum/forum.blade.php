@@ -8,11 +8,11 @@
             Topics: {{ $forum->topics->count() }}
         </div>
         <div class="col-md-3">
-            @if($forum->getLastTopic())
+            @if($forum->latestTopic)
                 Last post in:<br/>
-                <a href="{{ $forum->getLastTopic()->url() }}">{{ $forum->getLastTopic()->name }}</a><br/>
+                <a href="{{ $forum->latestTopic->url() }}">{{ $forum->latestTopic->name }}</a><br/>
                 Created by:<br/>
-                <a href="{{ $forum->getLastTopic()->getLastPost()->author->url() }}">{{ $forum->getLastTopic()->getLastPost()->author->name }}</a>
+                <a href="{{ $forum->latestTopic->latestPost->author->url() }}">{{ $forum->latestTopic->latestPost->author->name }}</a>
             @else
                 No topics.
             @endif

@@ -27,12 +27,12 @@ class Forum extends Model
     }
 
     /**
-     * Get last topic in forum(sorted by last post).
+     * Get latest topic in forum(sorted by last post).
      *
      * @return mixed
      */
-    public function getLastTopic()
+    public function latestTopic()
     {
-        return $this->topics->sortByDesc('last_post_id')->first();
+        return $this->hasOne('ModernFS\Topic')->latest();
     }
 }

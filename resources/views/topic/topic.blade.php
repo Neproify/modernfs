@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-3">
             Last post by:
-            <a href="{{ $topic->getLastPost()->author->url() }}">{{ $topic->getLastPost()->author->name }}</a>
+            <a href="{{ $topic->latestPost->author->url() }}">{{ $topic->latestPost->author->name }}</a>
         </div>
     </div>
 </div>
