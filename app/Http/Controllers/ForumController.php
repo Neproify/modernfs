@@ -13,7 +13,7 @@ class ForumController extends Controller
      */
     public function index()
     {
-        $forums = Forum::with('latestTopic')->get();
+        $forums = Forum::with('latestTopic.latestPost')->get();
 
         return view('forum.index', ['forums' => $forums]);
     }
