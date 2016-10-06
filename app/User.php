@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get url to user profile.
+     *
+     * @return string
+     */
+    public function url()
+    {
+        return '#';
+    }
 }

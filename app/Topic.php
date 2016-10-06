@@ -24,6 +24,16 @@ class Topic extends Model
     }
 
     /**
+     * Get author of the topic.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function author()
+    {
+        return $this->belongsTo('ModernFS\User', 'user_id');
+    }
+
+    /**
      * Get posts in topic.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -31,5 +41,15 @@ class Topic extends Model
     public function posts()
     {
         return $this->hasMany('ModernFS\Post');
+    }
+
+    /**
+     * Get last post in topic. Sorted by ID.
+     *
+     * @return mixed
+     */
+    public function getLastPost()
+    {
+        return $this->posts->sortByDesc('id')->first();
     }
 }

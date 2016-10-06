@@ -22,4 +22,14 @@ class Post extends Model
     {
         return $this->belongsTo('ModernFS\Topic');
     }
+
+    /**
+     * Get author of the post.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function author()
+    {
+        return $this->belongsTo('ModernFS\User', 'user_id');
+    }
 }
