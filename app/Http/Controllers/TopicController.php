@@ -20,7 +20,7 @@ class TopicController extends Controller
      */
     public function show($id, $name)
     {
-        $topic = Topic::findOrFail($id);
+        $topic = Topic::with('posts.author')->where('id', '=', $id)->first();
 
         return view('topic.show', ['topic' => $topic]);
     }

@@ -28,7 +28,7 @@ class ForumController extends Controller
      */
     public function show($id, $name)
     {
-        $forum = Forum::findOrFail($id);
+        $forum = Forum::with('topics.latestPost', 'topics.author')->where('id', '=', $id)->first();
 
         return view('forum.show', ['forum' => $forum]);
     }
