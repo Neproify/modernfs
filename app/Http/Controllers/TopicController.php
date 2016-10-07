@@ -14,12 +14,18 @@ class TopicController extends Controller
      * Show topic.
      *
      * @param $id
-     * @param $name
+     * @param string $name
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
-    public function show($id, $name)
+    public function show($id, $name = '')
     {
+        if ($name == '') {
+            $topic = Topic::findOrFail($id);
+
+            return redirect($topic->url());
+        }
+
         $topic = Topic::with('posts.author')->where('id', '=', $id)->first();
 
         return view('topic.show', ['topic' => $topic]);
@@ -58,22 +64,29 @@ class TopicController extends Controller
             return redirect('/');
         }
 
-        $this->validate($request, [
-            'name' => 'required|string|min:3|max:64',
-            'content' => 'required|string|min:3|max:4096',
-        ]);
+        $this->validate(
+            $request,
+            [
+                'name' => 'required|string|min:3|max:64',
+                'content' => 'required|string|min:3|max:4096',
+            ]
+        );
 
-        $topic = Topic::create([
-            'user_id' => Auth::user()->id,
-            'forum_id' => $request->input('forum'),
-            'name' => $request->input('name'),
-        ]);
+        $topic = Topic::create(
+            [
+                'user_id' => Auth::user()->id,
+                'forum_id' => $request->input('forum'),
+                'name' => $request->input('name'),
+            ]
+        );
 
-        $post = Post::create([
-            'user_id' => Auth::user()->id,
-            'topic_id' => $topic->id,
-            'content' => $request->input('content'),
-        ]);
+        $post = Post::create(
+            [
+                'user_id' => Auth::user()->id,
+                'topic_id' => $topic->id,
+                'content' => $request->input('content'),
+            ]
+        );
 
         return redirect($topic->url());
     }

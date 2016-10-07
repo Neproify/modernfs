@@ -22,12 +22,17 @@ class ForumController extends Controller
      * Show forum and it's content.
      *
      * @param $id
-     * @param $name
+     * @param string $name
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
-    public function show($id, $name)
+    public function show($id, $name = '')
     {
+        if ($name == '') {
+            $forum = Forum::findOrFail($id);
+
+            return redirect($forum->url());
+        }
         $forum = Forum::with('topics.latestPost', 'topics.author')->where('id', '=', $id)->first();
 
         return view('forum.show', ['forum' => $forum]);
