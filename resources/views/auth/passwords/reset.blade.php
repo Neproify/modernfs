@@ -6,7 +6,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 offset-md-2">
+            <div class="col-md-8 offset-md-2 m-t-1">
                 <div class="card">
                     <div class="card-block">
                         <h4 class="card-title">Reset Password</h4>
