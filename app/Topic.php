@@ -52,4 +52,14 @@ class Topic extends Model
     {
         return $this->hasOne('ModernFS\Post')->latest();
     }
+
+    /**
+     * Get topic's parent forum.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function forum()
+    {
+        return $this->belongsTo('ModernFS\Forum');
+    }
 }

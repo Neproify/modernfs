@@ -15,9 +15,11 @@
 
     <!-- Scripts -->
     <script>
-        window.Laravel = <?php echo json_encode([
-                'csrfToken' => csrf_token(),
-        ]); ?>
+        window.Laravel = <?php echo json_encode(
+                [
+                        'csrfToken' => csrf_token(),
+                ]
+        ); ?>
     </script>
 </head>
 <body>
@@ -28,7 +30,6 @@
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'ModernFS') }}
         </a>
-
 
         <!-- Left Side Of Navbar -->
         <ul class="nav navbar-nav">

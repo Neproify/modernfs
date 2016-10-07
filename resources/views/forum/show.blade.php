@@ -7,6 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2 m-t-1">
+                {!! Breadcrumbs::render('forum', $forum) !!}
                 <div class="col-md-8">
                     <h4>{{ $forum->name }}</h4>
                 </div>

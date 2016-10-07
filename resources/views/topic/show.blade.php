@@ -7,6 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2 m-t-1">
+                {!! Breadcrumbs::render('topic', $topic) !!}
                 <div class="col-md-8">
                     <h4>{{ $topic->name }}</h4>
                     Started by: <a href="{{ $topic->author->url() }}">{{ $topic->author->name }}</a>
