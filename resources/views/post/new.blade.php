@@ -19,8 +19,8 @@
                             <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                                 <label for="content" class="control-label">Content</label>
 
-                                <input id="content" type="text" class="form-control" name="content"
-                                       value="{{ old('content') }}" required autofocus>
+                                <textarea id="content" type="text" class="form-control" name="content" rows="9"
+                                          required autofocus>{{ old('content') }}</textarea>
 
                                 @if ($errors->has('content'))
                                     <span class="help-block">

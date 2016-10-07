@@ -1,6 +1,13 @@
 <div class="card">
     <div class="card-block">
-        <h4 class="card-title">Reply to topic.</h4>
-        {{ $post->content }}
+        <div class="col-md-6">
+            <h5 class="card-title">Reply to topic {{ $post->topic->name }}</h5>
+        </div>
+        <div class="col-md-6">
+            Created by: <a href="{{ $post->author->url() }}">{{ $post->author->name }}</a> on: {{ $post->created_at }}
+        </div>
+        <div class="col-md-12">
+            {{ $post->content }}
+        </div>
     </div>
 </div>

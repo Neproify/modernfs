@@ -6,12 +6,19 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <h4>{{ $topic->name }}</h4>
-                Started by: <a href="{{ $topic->author->url() }}">{{ $topic->author->name }}</a>
-                on: {{ $topic->created_at }}<br/>
-                <a class="btn btn-primary" href="{{ route('post.new', ['topic' => $topic->id]) }}">Reply to topic</a>
-                @each('post.post', $topic->posts, 'post')
+            <div class="col-md-8 offset-md-2 m-t-1">
+                <div class="col-md-8">
+                    <h4>{{ $topic->name }}</h4>
+                    Started by: <a href="{{ $topic->author->url() }}">{{ $topic->author->name }}</a>
+                    on: {{ $topic->created_at }}
+                </div>
+                <div class="col-md-4">
+                    <a class="btn btn-primary pull-md-right" href="{{ route('post.new', ['topic' => $topic->id]) }}">Reply to
+                        topic</a>
+                </div>
+                <div class="col-md-12 m-t-1">
+                    @each('post.post', $topic->posts, 'post')
+                </div>
             </div>
         </div>
     </div>
