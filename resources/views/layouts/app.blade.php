@@ -23,7 +23,7 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-light bg-faded">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
     <div class="container">
 
         <!-- Branding Image -->
@@ -32,14 +32,14 @@
         </a>
 
         <!-- Left Side Of Navbar -->
-        <ul class="nav navbar-nav">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/') }}">Forum</a>
             </li>
         </ul>
 
         <!-- Right Side Of Navbar -->
-        <ul class="nav navbar-nav pull-xs-right">
+        <ul class="navbar-nav">
             <!-- Authentication Links -->
             @if (Auth::guest())
                 <li class="nav-item">
