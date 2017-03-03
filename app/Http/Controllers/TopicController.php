@@ -4,6 +4,7 @@ namespace ModernFS\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Redirect;
 use ModernFS\Forum;
 use ModernFS\Topic;
 use ModernFS\Post;
@@ -41,7 +42,7 @@ class TopicController extends Controller
     public function createForm($forum)
     {
         if (!Auth::check()) {
-            return redirect('/');
+            return Redirect::guest('login');
         }
 
         $forum = Forum::findOrFail($forum);
@@ -61,7 +62,7 @@ class TopicController extends Controller
     public function create(Request $request)
     {
         if (!Auth::check()) {
-            return redirect('/');
+            return Redirect::guest('login');
         }
 
         $this->validate(
