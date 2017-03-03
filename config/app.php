@@ -178,6 +178,7 @@ return [
         // ModernFS\Providers\BroadcastServiceProvider::class,
         ModernFS\Providers\EventServiceProvider::class,
         ModernFS\Providers\RouteServiceProvider::class,
+        ModernFS\Providers\PaginationServiceProvider::class
 
     ],
 
