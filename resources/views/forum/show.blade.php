@@ -19,6 +19,7 @@
 				<div class="col-md-12 m-t-1">
 					@each('topic.topic', $forum->topics, 'topic')
 				</div>
+				{{ $forum->topics->links() }}
 			</div>
 		</div>
 	</div>

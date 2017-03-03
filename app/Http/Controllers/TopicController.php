@@ -29,6 +29,8 @@ class TopicController extends Controller
 
         $topic = Topic::with('posts.author')->where('id', '=', $id)->first();
 
+        $topic->posts = $topic->posts()->paginate(5);
+
         return view('topic.show', ['topic' => $topic]);
     }
 

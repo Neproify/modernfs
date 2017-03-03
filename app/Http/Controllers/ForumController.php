@@ -35,6 +35,8 @@ class ForumController extends Controller
         }
         $forum = Forum::with('topics.latestPost', 'topics.author')->where('id', '=', $id)->first();
 
+        $forum->topics = $forum->topics()->paginate(5);
+
         return view('forum.show', ['forum' => $forum]);
     }
 }

@@ -21,6 +21,7 @@
                 <div class="col-md-12 m-t-1">
                     @each('post.post', $topic->posts, 'post')
                 </div>
+                {{ $topic->posts->links() }}
             </div>
         </div>
     </div>
