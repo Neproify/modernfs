@@ -166,7 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
-        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider::class,
 
         //
 
@@ -227,7 +227,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs::class
 
     ],
 
