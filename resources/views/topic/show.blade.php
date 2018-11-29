@@ -10,7 +10,7 @@
                 {!! Breadcrumbs::render('topic', $topic) !!}
                 <div class="row">
                     <div class="col-md-8">
-                        <h4>{{ $topic->name }}</h4>
+                        <h3>{{ $topic->name }}</h3>
                         Started by: <a href="{{ $topic->author->url() }}">{{ $topic->author->name }}</a>
                         on: {{ $topic->created_at }}
                     </div>
@@ -18,6 +18,7 @@
                         <a class="btn btn-primary float-right" href="{{ route('post.new', ['topic' => $topic->id]) }}">Reply to topic</a>
                     </div>
                 </div>
+                <hr />
                 <div class="col-md-12 m-t-1">
                     @each('post.post', $topic->posts, 'post')
                 </div>
