@@ -23,54 +23,61 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <div class="container">
-
-        <!-- Branding Image -->
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'ModernFS') }}
         </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <!-- Left Side Of Navbar -->
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/') }}">Forum</a>
-            </li>
-        </ul>
-
-        <!-- Right Side Of Navbar -->
-        <ul class="navbar-nav">
-            <!-- Authentication Links -->
-            @if (Auth::guest())
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/login') }}">Login</a>
+                    <a class="nav-link" href="{{ url('/') }}">Forum</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/register') }}">Register</a>
-                </li>
-            @else
-                <li class="nav-item dropdown">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false">
-                        {{ Auth::user()->name }}
-                    </a>
-
-                    <div class="dropdown-menu" role="menu">
-
-                        <a class="dropdown-item" href="{{ url('/logout') }}" onclick="
-                                        event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                            Logout
+                @if(Auth::user() && Auth::user()->is_admin)
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            AdminCP
                         </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Dashboard</a>
+                        </div>
+                    </li>
+                @endif
+            </ul>
+            <ul class="navbar-nav my-2 my-lg-0">
+                @if(Auth::guest())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/register') }}">Register</a>
+                    </li>
+                @else
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <a class="dropdown-item" href="{{ url('/logout') }}" onclick="
+                                            event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
 
-                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-                </li>
-            @endif
-        </ul>
-    </div>
-</nav>
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </div>
+                    </li>
+                @endif
+            </ul>
+        </div>
+    </nav>
+</div>
 
 @yield('content')
 
