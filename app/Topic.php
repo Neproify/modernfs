@@ -44,9 +44,20 @@ class Topic extends Model
     }
 
     /**
+     * Get first post in topic.
+     *
+     * @return Post
+     */
+
+    public function firstPost()
+    {
+        return $this->hasOne('ModernFS\Post')->first();
+    }
+
+    /**
      * Get last post in topic.
      *
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function latestPost()
     {
@@ -56,7 +67,7 @@ class Topic extends Model
     /**
      * Get topic's parent forum.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return Forum
      */
     public function forum()
     {

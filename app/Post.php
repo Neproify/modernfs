@@ -32,4 +32,14 @@ class Post extends Model
     {
         return $this->belongsTo('ModernFS\User', 'user_id');
     }
+
+    /**
+     * Is this post first in topic?
+     *
+     * @return bool
+     */
+    public function isFirst()
+    {
+        return $this->topic()->first()->firstPost() == $this;
+    }
 }
