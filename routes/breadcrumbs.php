@@ -43,3 +43,8 @@ Breadcrumbs::register('post.new', function ($breadcrumbs, $topic) {
     $breadcrumbs->parent('topic', $topic);
     $breadcrumbs->push('New post', route('post.new', ['topic' => $topic->id]));
 });
+
+Breadcrumbs::register('profile', function($breadcrumbs, $user) {
+   $breadcrumbs->parent('index');
+   $breadcrumbs->push($user->name, $user->url());
+});

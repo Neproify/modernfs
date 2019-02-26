@@ -34,6 +34,6 @@ class User extends Authenticatable
      */
     public function url()
     {
-        return '#';
+        return route('profile', [$this->id, $this->name]);
     }
 }

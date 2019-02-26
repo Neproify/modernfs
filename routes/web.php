@@ -22,3 +22,5 @@ Route::get('/topic/{id}/{name?}', 'TopicController@show')->name('topic');
 
 Route::get('/post/new/{topic}', 'PostController@createForm')->name('post.new');
 Route::post('/post/new', 'PostController@create');
+
+Route::get('/user/{id}/{name?}', 'UserController@profile')->name('profile');
